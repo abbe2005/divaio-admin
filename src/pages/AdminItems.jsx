@@ -216,7 +216,7 @@ export function NavBar({ activePage, itemCount }) {
 
         <div className="admin-nav__left">
           <a href="/items" className="admin-nav__logo">
-            <img src="./logo.png" alt="Divaio" />
+            <img src="/logo.png" alt="Divaio" />
           </a>
         </div>
 
