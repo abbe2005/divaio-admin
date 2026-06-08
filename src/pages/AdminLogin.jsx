@@ -44,7 +44,7 @@ export default function AdminLogin() {
         <p className="login-card__eyebrow">Admin Portal</p>
 
         <div className="login-card__logo-wrap">
-          <img src="src/assets/logo.png" alt="Divaio" className="login-card__logo" />
+          <img src="./logo.png" alt="Divaio" className="login-card__logo" />
         </div>
 
         <div className="login-card__header">
