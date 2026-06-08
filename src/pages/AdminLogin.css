@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: 'Montserrat', sans-serif; }
+
+/* ═══════════════════════════════════════════════════════════
+   FULL PAGE
+═══════════════════════════════════════════════════════════ */
+.login-root {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.login-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARD
+═══════════════════════════════════════════════════════════ */
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+  margin: auto;
+  animation: card-rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes card-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Eyebrow ── */
+.login-card__eyebrow {
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+/* ── Logo ── */
+.login-card__logo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.login-card__logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+/* ── Header ── */
+.login-card__header { text-align: center; }
+
+.login-card__title {
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  font-weight: 600;
+  color: #111;
+  letter-spacing: -0.01em;
+}
+
+.login-card__sub {
+  font-size: clamp(0.62rem, 2.5vw, 0.72rem);
+  color: #888;
+  margin-top: 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── Error ── */
+.login-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 5px;
+  padding: 0.65rem 0.85rem;
+  font-size: clamp(0.6rem, 2.5vw, 0.7rem);
+  color: #c53030;
+  letter-spacing: 0.03em;
+}
+
+.login-error svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  stroke: #c53030;
+}
+
+/* ── Form ── */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.login-form__group label {
+  font-size: clamp(0.55rem, 2vw, 0.6rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.login-form__group input {
+  height: 46px;
+  padding: 0 0.85rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.75rem, 3vw, 0.85rem);
+  color: #111;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  width: 100%;
+}
+
+.login-form__group input::placeholder {
+  color: #bbb;
+}
+
+.login-form__group input:focus {
+  border-color: #111;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.07);
+}
+
+/* ── Submit ── */
+.login-btn {
+  height: 48px;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.6rem, 2.5vw, 0.68rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, opacity 0.2s;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+
+.login-btn:hover:not(:disabled) { background: #333; }
+.login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.login-btn__spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Footer ── */
+.login-card__footer {
+  text-align: center;
+  font-size: clamp(0.6rem, 2.5vw, 0.65rem);
+  color: #aaa;
+  letter-spacing: 0.06em;
+}
+.login-card__footer a:hover { color: #111; }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .login-root { padding: 1rem; }
+  .login-card { padding: 2rem 1.5rem; gap: 1.1rem; border-radius: 8px; }
+  .login-card__logo { height: 54px; }
+  .login-form__group input { height: 44px; }
+  .login-btn { height: 46px; }
+}
+
+@media (max-width: 390px) {
+  .login-root { padding: 0.75rem; }
+  .login-card { padding: 1.6rem 1.1rem; gap: 0.95rem; border-radius: 7px; }
+  .login-card__logo { height: 46px; }
+  .login-form__group input { height: 42px; }
+  .login-btn { height: 43px; }
+  .login-error { padding: 0.55rem 0.7rem; gap: 0.4rem; }
+  .login-error svg { width: 13px; height: 13px; }
+}
