@@ -189,8 +189,9 @@ export default function AdminItems() {
           onClick={e => e.stopPropagation()}
         >
           <a href={`/items/${openMenu}`} className="dot-menu__item">
+           <a href={`/items/${item.id}`} className="admin-btn admin-btn--small admin-btn--edit"></a>
           </a>
-          <a href={`/items/${item.id}`} className="admin-btn admin-btn--small admin-btn--edit"></a>
+         
           <button
             onClick={() => { setShowDeleteConfirm(openMenu); setOpenMenu(null); }}
             className="dot-menu__item dot-menu__item--delete"
