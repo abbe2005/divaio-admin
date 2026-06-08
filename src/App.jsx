@@ -60,7 +60,9 @@ export default function App() {
   }
 
   // ── Authenticated routing ──
-  if (page === '/' || page === '/items') return <AdminItems />;
+  if (page === '/') return <AdminItems />;
+  if (page === '/items') return <AdminItems />;
+
   if (page === '/items/new')             return <AdminItemForm />;
 
   if (page.startsWith('/items/')) {
